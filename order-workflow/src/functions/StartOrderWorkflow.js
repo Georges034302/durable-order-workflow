@@ -5,16 +5,12 @@ app.http('StartOrderWorkflow', {
   route: 'start-order',
   methods: ['POST'],
   authLevel: 'anonymous',
+  extraInputs: [df.input.durableClient()],
   handler: async (request, context) => {
     const client = df.getClient(context);
     const input = await request.json();
     const instanceId = await client.startNew('OrderOrchestrator', { input });
-    return {
-      status: 202,
-      jsonBody: {
-        id: instanceId,
-        statusQueryGetUri: client.createCheckStatusResponse(context, instanceId).statusQueryGetUri
-      }
-    };
+
+    return client.createCheckStatusResponse(request, instanceId);
   }
 });
