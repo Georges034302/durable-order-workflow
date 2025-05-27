@@ -1,6 +1,6 @@
-const { app } = require('@azure/functions');
+const df = require('durable-functions');
 
-app.activity('CancelOrder', {
+df.app.activity('CancelOrder', {
   handler: async (order, context) => {
     context.log('🔧 Activity "CancelOrder" triggered for order', order.id);
     return true;
