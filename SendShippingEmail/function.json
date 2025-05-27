@@ -1,9 +1,0 @@
-{
-  "bindings": [
-    {
-      "type": "activityTrigger",
-      "name": "order"
-    }
-  ],
-  "scriptFile": "index.js"
-}
