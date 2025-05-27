@@ -1,0 +1,13 @@
+{
+  "name": "order-workflow",
+  "version": "1.0.0",
+  "description": "Durable Functions Order Workflow (Node.js)",
+  "main": "src/StartOrderWorkflow.js",
+  "scripts": {
+    "start": "func start"
+  },
+  "dependencies": {
+    "@azure/functions": "^4.0.0",
+    "durable-functions": "^3.0.0"
+  }
+}
